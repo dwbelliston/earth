@@ -1,0 +1,13 @@
+{
+  "name": "earth-infra-database",
+  "version": "1.0.0",
+  "description": "Database for Earth stories",
+  "author": "dwb",
+  "license": "MIT",
+  "dependencies": {
+    "serverless": "^1.50.0"
+  },
+  "devDependencies": {
+    "serverless-dynamodb-local": "git+ssh://git@github.com/dwbelliston/serverless-dynamodb-local.git"
+  }
+}

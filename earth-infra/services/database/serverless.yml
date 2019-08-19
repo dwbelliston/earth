@@ -1,0 +1,104 @@
+service: earth-database
+
+plugins:
+  - serverless-dynamodb-local
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  storiesTableName: ${self:custom.stage}-earth-stories
+  # billingTableName: ${self:custom.stage}-earth-billing
+  tableThroughputs:
+    prod: 5
+    default: 1
+  tableThroughput: ${self:custom.tableThroughputs.${self:custom.stage}, self:custom.tableThroughputs.default}
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 8008
+      inMemory: true
+      migrate: true
+      seed: true
+      userStop: true
+    seed:
+      domain:
+        sources:
+          - table: ${self:custom.storiesTableName}
+            sources: [./seed/testStories.json]
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-west-2
+  stackName: stack-${self:service}-${self:custom.stage}
+  profile: sls-earth
+
+resources:
+  Resources:
+    StoriesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        # Generate a name based on the stage
+        TableName: ${self:custom.storiesTableName}
+        AttributeDefinitions:
+          - AttributeName: storyId
+            AttributeType: S
+          - AttributeName: createdDate
+            AttributeType: N
+          - AttributeName: type
+            AttributeType: S
+        KeySchema:
+          - AttributeName: storyId
+            KeyType: HASH
+          - AttributeName: createdDate
+            KeyType: RANGE
+        # Set the capacity based on the stage
+        ProvisionedThroughput:
+          ReadCapacityUnits: ${self:custom.tableThroughput}
+          WriteCapacityUnits: ${self:custom.tableThroughput}
+        GlobalSecondaryIndexes:
+          - IndexName: index-createdDate
+            KeySchema:
+              - AttributeName: type
+                KeyType: HASH
+              - AttributeName: createdDate
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: ${self:custom.tableThroughput}
+              WriteCapacityUnits: ${self:custom.tableThroughput}
+
+    # BillingTable:
+    #   Type: AWS::DynamoDB::Table
+    #   Properties:
+    #     # Generate a name based on the stage
+    #     TableName: ${self:custom.billingTableName}
+    #     AttributeDefinitions:
+    #       - AttributeName: id
+    #         AttributeType: S
+    #     KeySchema:
+    #       - AttributeName: id
+    #         KeyType: HASH
+    #     # Set the capacity based on the stage
+    #     ProvisionedThroughput:
+    #       ReadCapacityUnits: ${self:custom.tableThroughput}
+    #       WriteCapacityUnits: ${self:custom.tableThroughput}
+
+  Outputs:
+    StoriesTableArn:
+      Value:
+        Fn::GetAtt:
+          - StoriesTable
+          - Arn
+      Export:
+        Name: ${self:custom.stage}-StoriesTableArn
+
+    # BillingTableArn:
+    #   Value:
+    #     Fn::GetAtt:
+    #       - StoriesTable
+    #       - Arn
+    #   Export:
+    #     Name: ${self:custom.stage}-BillingTableArn

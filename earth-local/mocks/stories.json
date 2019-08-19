@@ -1,0 +1,62 @@
+[
+  {
+    "createdDate": 1557430081030,
+    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "document": "## example documents",
+    "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52994",
+    "title": "Setting up AWS SAM",
+    "type": "blog",
+    "updatedAt": 1557430081030,
+    "userId": "9901bbed-2bab-4ae8-9576-2c9f19dbee3e"
+  },
+  {
+    "createdDate": 1557430081035,
+    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "document": "## example documents 2",
+    "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52994",
+    "title": "Quick dev with AWS Amplify",
+    "type": "blog",
+    "updatedAt": 1557430081030,
+    "userId": "9901bbed-2bab-4ae8-9576-2c9f19dbee3e"
+  },
+  {
+    "createdDate": 1557430081040,
+    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "document": "## example documents 3",
+    "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52996",
+    "title": "The &:after in CSS",
+    "type": "blog",
+    "updatedAt": 1557430081030,
+    "userId": "9901bbed-2bab-4ae8-9576-2c9f19dbee3e"
+  },
+  {
+    "createdDate": 1557430081040,
+    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "document": "## example documents 3",
+    "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52996",
+    "title": "CSS display:grid is nice ",
+    "type": "blog",
+    "updatedAt": 1557430081030,
+    "userId": "9901bbed-2bab-4ae8-9576-2c9f19dbee3e"
+  },
+  {
+    "createdDate": 1557430081040,
+    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "document": "## example documents 3",
+    "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52996",
+    "title": "Use display:flex for control ",
+    "type": "blog",
+    "updatedAt": 1557430081030,
+    "userId": "9901bbed-2bab-4ae8-9576-2c9f19dbee3e"
+  },
+  {
+    "createdDate": 1557430081040,
+    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "document": "## example documents 3",
+    "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52996",
+    "title": "More to life than Lambda",
+    "type": "blog",
+    "updatedAt": 1557430081030,
+    "userId": "9901bbed-2bab-4ae8-9576-2c9f19dbee3e"
+  }
+]

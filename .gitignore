@@ -1,0 +1,7 @@
+node_modules
+.serverless
+.webpack
+.dynamodb
+.DS_STORE
+# Env
+env.yml

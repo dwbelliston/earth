@@ -1,0 +1,115 @@
+service: earth-api-stories
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  profile:
+    prod: prodAccountProfile
+    dev: sls-earth
+  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
+  serverless-offline:
+    port: 8000
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev # Set the default stage used. Default is dev
+  region: us-west-2 # Overwrite the default region used. Default is us-west-2
+  stackName: stack-${self:service}-${self:custom.stage} # Overwrite default CloudFormation stack name. Default is ${self:service}-${self:provider.stage}
+  apiName: ${self:service}-${self:custom.stage} # Overwrite default API Gateway name. Default is ${self:provider.stage}-${self:service}
+  profile: ${self:custom.profile.${self:custom.stage}}
+  memorySize: 512 # Overwrite the default memory size. Default is 1024
+  tracing:
+    lambda: true
+    apiGateway: true
+  # # v 1.42.2 has a bug in this right now
+  # logs:
+  #   restApi: true
+  environment:
+    STORIES_TABLENAME: ${file(../../earth-infra/services/database/serverless.yml):custom.storiesTableName}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - "Fn::ImportValue": ${self:custom.stage}-StoriesTableArn
+
+functions:
+  create:
+    handler: functions/create.create
+    events:
+      - http:
+          path: stories
+          method: post
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+
+  list:
+    handler: functions/list.list
+    events:
+      - http:
+          path: stories
+          method: get
+          cors:
+            origin: "*"
+
+  get:
+    handler: functions/get.get
+    events:
+      - http:
+          path: stories/{id}
+          method: get
+          cors:
+            origin: "*"
+
+  update:
+    handler: functions/update.update
+    events:
+      - http:
+          path: stories/{id}
+          method: put
+          cors:
+            origin: "*"
+          authorizer: aws_iam
+
+  delete:
+    handler: functions/delete.delete
+    events:
+      - http:
+          path: stories/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+resources:
+  - ${file(./resources/api-gateway-errors.yml)}
+
+  - Outputs:
+      ApiGatewayRestApiId:
+        Value:
+          Ref: ApiGatewayRestApi
+        Export:
+          Name: ${self:custom.stage}-ApiGatewayRestApiId
+
+      ApiGatewayRestApiRootResourceId:
+        Value:
+          Fn::GetAtt:
+            - ApiGatewayRestApi
+            - RootResourceId
+        Export:
+          Name: ${self:custom.stage}-ApiGatewayRestApiRootResourceId

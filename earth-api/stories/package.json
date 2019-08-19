@@ -1,0 +1,23 @@
+{
+  "name": "earth-api-stories",
+  "version": "1.0.1",
+  "description": "API for Earth stories",
+  "author": "dwb",
+  "license": "MIT",
+  "dependencies": {
+    "stripe": "^6.32.0",
+    "uuid": "^2.0.3"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.12.0",
+    "jest": "^24.8.0",
+    "serverless-api-stage": "^1.4.0",
+    "serverless-offline": "^3.8.3",
+    "serverless-webpack": "^5.3.0",
+    "webpack": "^4.2.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

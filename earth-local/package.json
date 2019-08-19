@@ -1,0 +1,14 @@
+{
+  "name": "earth-local-api",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "nodemon": "^1.19.1",
+    "cors": "^2.8.5"
+  }
+}
