@@ -1,20 +1,28 @@
 .app-footer {
+    position: relative;
+    width: 100%;
+    // height: 5rem;
+}
+
+.dots {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10px, 10px));
-  grid-template-rows: repeat(auto-fill, minmax(10px, 10px));
-  grid-gap: 5px;
+  height: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 
 .dot {
-  height: 4px;
-  width: 4px;
-  transition: background 5s;
-
   &.color {
-    background: #27ae60;
+    &:before {
+      background: green;
+    }
   }
 
-  &:hover {
-    background: red;
+  &:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    display: block;
+
   }
+
 }

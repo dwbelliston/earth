@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import Intro from "../intro/intro";
 import "./app-header.scss";
 
 class AppHeader extends Component {
@@ -23,13 +22,11 @@ class AppHeader extends Component {
       !this.state.isAuthenticating && (
         <header className="app-header-container">
           <div className="app-container app-header">
-            <div className="square">
-              <NavLink exact to="/" activeClassName="is-active">
-                <h1>square earth</h1>
-              </NavLink>
-            </div>
-            <div>
-              <Intro />
+            <NavLink exact to="/" activeClassName="is-active">
+              <h1>square earth</h1>
+            </NavLink>
+            <div className="app-header__items">
+              <i className="fas fa-search" />
             </div>
           </div>
         </header>

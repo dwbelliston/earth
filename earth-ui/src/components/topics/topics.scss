@@ -1,0 +1,16 @@
+.app-topics-container {
+
+}
+
+.topics {
+  display: flex;
+}
+
+.topic {
+  text-transform: uppercase;
+  color: #0000008a;
+
+  &+& {
+    margin-left: 1rem;
+  }
+}

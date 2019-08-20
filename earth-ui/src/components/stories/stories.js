@@ -40,7 +40,7 @@ class Stories extends Component {
 
   render() {
     return (
-      <div className="Stories">
+      <div className="stories">
 
         {!this.state.stories.length && (
           <h2>No Recent Stories</h2>

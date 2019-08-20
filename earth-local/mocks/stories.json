@@ -1,7 +1,9 @@
 [
   {
     "createdDate": 1557430081030,
-    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "subtitle": "In this post I will show you how you can improve deployment time of your Lambda function written in Java by reusing a layer. It will also improve an overall development cycle experience and decrease internet bandwidth usage.",
+    "time": 4,
+    "image": "https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80",
     "document": "## example documents",
     "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52994",
     "title": "Setting up AWS SAM",
@@ -11,7 +13,9 @@
   },
   {
     "createdDate": 1557430081035,
-    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "subtitle": "It allows creating an environment which can be reused between Lambda functions.",
+    "time": 2,
+    "image": "https://images.unsplash.com/photo-1505496875-17a0c521864c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2265&q=80",
     "document": "## example documents 2",
     "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52994",
     "title": "Quick dev with AWS Amplify",
@@ -21,7 +25,9 @@
   },
   {
     "createdDate": 1557430081040,
-    "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "subtitle": "Before layers, if you wanted to deploy a Lambda function you had to provide a “fat” zip file with all the dependencies included.",
+    "time": 1,
+    "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2014&q=80",
     "document": "## example documents 3",
     "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52996",
     "title": "The &:after in CSS",
@@ -32,6 +38,8 @@
   {
     "createdDate": 1557430081040,
     "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "time": 1,
+    "image": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
     "document": "## example documents 3",
     "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52996",
     "title": "CSS display:grid is nice ",
@@ -42,6 +50,8 @@
   {
     "createdDate": 1557430081040,
     "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "time": 1,
+    "image": "https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80",
     "document": "## example documents 3",
     "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52996",
     "title": "Use display:flex for control ",
@@ -52,6 +62,8 @@
   {
     "createdDate": 1557430081040,
     "subtitle": "Quick intro into this topic to help you solve a problem.",
+    "time": 1,
+    "image": "https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80",
     "document": "## example documents 3",
     "storyId": "8eed8a60-7290-11e9-ab07-3bf675f52996",
     "title": "More to life than Lambda",

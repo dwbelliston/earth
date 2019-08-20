@@ -9,22 +9,22 @@ class AppFooter extends Component {
   }
 
   componentDidMount = () => {
-    let intervalId = setInterval(this.createDots, 5000);
-    this.setState({ intervalId: intervalId });
+    // let intervalId = setInterval(this.createDots, 2000);
+    // this.setState({ intervalId: intervalId });
     this.createDots();
   };
 
   componentWillUnmount = () => {
     // use intervalId from the state to clear the interval
-    clearInterval(this.state.intervalId);
+    // clearInterval(this.state.intervalId);
   };
 
   createDots = () => {
     let dots = [];
 
-    [...Array(500)].forEach((_, i) => {
-      if (Math.floor(Math.random() * Math.floor(50)) === 1) {
-        dots.push(<div key={i} className="dot color" />);
+    [...Array(100)].forEach((_, i) => {
+      if (Math.floor(Math.random() * Math.floor(10)) === 2) {
+        dots.push(<div key={i} className="dot color"><div></div></div>);
       } else {
         dots.push(<div key={i} className="dot" />);
       }
@@ -34,7 +34,12 @@ class AppFooter extends Component {
   };
 
   render() {
-    return <div className="app-container app-footer">{this.state.dots}</div>;
+    return <div className="app-container app-footer">
+      {/* <div className="space">Space with content</div> */}
+      {/* <div className="dots">
+        {this.state.dots}
+      </div> */}
+    </div>;
   }
 }
 
