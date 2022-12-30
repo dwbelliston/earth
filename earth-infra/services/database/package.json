@@ -5,7 +5,7 @@
   "author": "dwb",
   "license": "MIT",
   "dependencies": {
-    "serverless": "^1.50.0"
+    "serverless": "^1.83.3"
   },
   "devDependencies": {
     "serverless-dynamodb-local": "git+ssh://git@github.com/dwbelliston/serverless-dynamodb-local.git"
